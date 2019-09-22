@@ -1,0 +1,36 @@
+<div class="jumbotron" >
+ <div class="col-12" >
+ <h1 align="center">Planet</h1>
+  <div>
+    <br>
+    <button class="btn btn-dark btn-block" [routerLink]="['/planet/0']">NUEVO</button>
+    <br>
+  </div>
+
+  <table class="table table-dark  table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Size</th>
+      <th scope="col">Star</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let planet of planets">
+      <th scope="row">{{planet.id}}</th>
+      <td>{{planet.nombre}}</td>
+      <td>{{planet.size}}</td>
+      <td>{{planet.star.nombre}} </td>
+      <td>
+        <div class="row"style="margin-left: 2%">
+          <button class="btn btn-outline-success"  (click)="update(planet.id)">EDITAR</button>
+          <button class="btn btn-outline-warning" style="margin-left: 2%" (click)="delete(planet.id)">ELIMINAR</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+ </div>
+</div>

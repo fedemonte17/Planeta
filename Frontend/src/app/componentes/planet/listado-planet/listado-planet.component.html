@@ -1,0 +1,77 @@
+<div clas= "componet">
+    <div class="col-3">
+        <button class="btn btn-outline-success" (click)="nuevaStar = true" [disabled]="nuevaStar">AGREGAR NUEVA STAR</button>
+        <br>
+        <br>
+      
+        <div *ngIf="nuevaStar">
+          <div class="input-group"> 
+            <div class="input-group-prepend">
+              <div class="input-group-text">Nombre Star</div>
+            </div>
+            <input type="input" class="form-control" [(ngModel)]="starPost.nombre" >
+          </div>
+      
+          <br>
+      
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Densidad Star</div>
+            </div>
+            <input type="input" class="form-control" [(ngModel)]="starPost.densidad" >
+          </div>
+      
+          <br>
+      
+          <button class="btn star btn-outline-info" (click)="guardarStar()">GUARDAR</button>
+          <button class="btn btn-outline-dark" (click)="nuevaStar=false">CERRAR</button>
+      </div>     
+      </div>
+
+
+<div class="col-5">  
+    <div class="form-group" >
+    <label>ID</label>
+    <input type="text"  disabled class="form-control" [(ngModel)]="planet.id" placeholder="0">
+    </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                       
+              <div class="form-group ">
+                  <label>Nombre Planeta</label>
+                  <input type="text" id="nombre" formControlName="nombre" class="form-control" [(ngModel)]="planet.nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+                  <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                      <div *ngIf="f.nombre.errors.required">Colocar Nombre</div>
+                  </div>
+              </div>
+              <div class="form-group ">
+                  <label>Size</label>
+                  <input type="text" formControlName="size" class="form-control" [(ngModel)]="planet.size" [ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
+                  <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
+                      <div *ngIf="f.size.errors.required">Colocar Size</div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label>Stars</label>
+                <select formControlName="star" class="form-control" [(ngModel)]="planet.star.id" [ngClass]="{ 'is-invalid': submitted && f.star.errors }">
+                    <option value="0"></option>
+                    <option *ngFor="let star of stars" [selected]="star.id" [value]="star.id">{{star.nombre}}</option>
+                </select>
+                <div *ngIf="submitted && f.star.errors" class="invalid-feedback">
+                    <div *ngIf="f.star.errors.required">Seleccionar Star </div>
+                </div>
+            </div>
+          
+        
+        
+       
+          <div class="text-center">
+              <button class="btn btn-outline-info btn-block mr-1" style="margin-top: 2%" >GUARDAR</button>
+              <button class="btn btn-outline-danger btn-block" type="reset" style="margin-top: 2%"   (click)="onReset()">CANCELAR</button>
+              <button class="btn btn-outline-dark btn-block" style="margin-top: 2%" [routerLink]="['/planet']">VOLVER</button>
+          </div>
+          <br>
+      </form>
+</div>
+
+</div>

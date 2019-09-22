@@ -1,0 +1,34 @@
+<div class="jumbotron" id="fondo" style=" margin-bottom:0;">
+<div class="col-12" >
+  <h1 align="center">STAR</h1>
+    <div>
+      <br>
+      <button class="btn btn-dark btn-block" [routerLink]="['/star/0']">NUEVO</button>
+      <br>
+    </div>
+  
+    <table class=" table table-dark table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Densidad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let star of star">
+        <th scope="row">{{star.id}}</th>
+        <td>{{star.nombre}}</td>
+        <td>{{star.densidad}}</td>
+        <td>
+          <div class="row" style="margin-left: 2%">
+            <button class="btn btn-outline-success" (click)="update(star.id)">EDITAR</button>
+            <button class="btn btn-outline-warning" style="margin-left: 2%"  (click)="delete(star.id)">ELIMINAR</button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

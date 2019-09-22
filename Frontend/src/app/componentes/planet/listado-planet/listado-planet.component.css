@@ -1,0 +1,44 @@
+
+
+.componet{
+    width: 100%;
+    height: 100%;
+}
+
+.col-3{
+    margin-top: 10%;
+    margin-left: 5%;
+    position: absolute;
+    width: 30%;
+   
+}
+
+.col-5{
+    
+left: 30%;
+margin-top: 3%;
+
+position: absolute;
+width: 70%;
+
+}
+
+
+
+
+
+label{
+    color: #ffd5d5;
+}
+input{
+    background: #ffffff45;
+}
+
+select{
+    background: #ffffff45;
+
+}
+
+.btn{
+background-color: #00000071;
+}
